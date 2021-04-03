@@ -6,6 +6,7 @@ const app = express();
 const cors=require('cors')
 const PORT = 5000;
 require("./model")
+require('dotenv').config()
 const File = mongoose.model("file");
 const router = express.Router();
 
@@ -45,7 +46,7 @@ app.get("/",(req,res)=>{
    return res.send("<p>hello!</p>");
 });
 
-mongoose.connect("mongodb+srv://santam:santam12345@cluster.q6ixt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{
+mongoose.connect(process.env.MONGODB_URI,{
    useUnifiedTopology: true,
    useNewUrlParser: true,
    useCreateIndex: true,
