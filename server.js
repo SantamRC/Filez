@@ -53,5 +53,5 @@ mongoose.connect(process.env.MONGODB_URI,{
 }).then(()=>{console.log("DB is connected")})
 
 app.listen(PORT,()=>{
-   console.log("\u{1F525}\u{1F680} app listen on port",PORT,"\u{1F525}\u{1F680}")
+   console.log("App listen on port",PORT)
 });
