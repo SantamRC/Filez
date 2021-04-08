@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       Homepage Ready
       <Form />
-      <Download />
+      
     </div>
   );
 }

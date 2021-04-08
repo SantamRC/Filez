@@ -1,47 +1,43 @@
-import React from 'react';
+import React,{useState} from 'react';
 //import './App.css';
 import axios from 'axios';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 
-class Form extends React.Component {
+function Upload(){
+    const [file,setFile]=useState({file:null})
 
-  constructor(props) {
-      super(props);
-      this.state ={
-          file: null
-      };
-      this.onFormSubmit = this.onFormSubmit.bind(this);
-      this.onChange = this.onChange.bind(this);
-  }
-  onFormSubmit(e){
-      e.preventDefault();
-      const formData = new FormData();
-      formData.append('myfile',this.state.file);
-      const config = {
-          headers: {
-              'content-type': 'multipart/form-data'
-          }
-      };
-      axios.post("http://localhost:5000/upload",formData,config)
-          .then((response) => {
-              alert("The file is successfully uploaded");
-          }).catch((error) => {
-      });
-  }
+    let onSubmit=async (e)=>{
+        e.preventDefault()
+        console.log('Submitted')
+        const formData = new FormData();
+        formData.append('file',file);
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        }
+        axios.post('http://localhost:5000/upload',formData,config).then((req,res)=>{
+            console.log(req)
+        })
+    }
 
-  onChange(e) {
-      this.setState({file:e.target.files});
-  }
-
-  render() {
+    let onChange=(e)=>{
+        setFile({file:e.target.files[0]})
+        //console.log(e.target.files[0].name)
+    }
+  
       return (
-          <form onSubmit={this.onFormSubmit}>
-              <h1>File Upload</h1>
-              <input type="file" className="custom-file-input" name="myImage" onChange= {this.onChange} />
-              {console.log(this.state.file)}
-              <button className="upload-button" type="submit">Upload to DB</button>
-          </form>
+        <div>
+            <Form>
+            <Form.File 
+                id="custom-file"
+                label="Custom file input"
+                custom
+                size='sm'
+            />
+            </Form>
+        </div>
       )
-  }
 }
 
-export default Form;
+export default Upload;
