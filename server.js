@@ -14,6 +14,7 @@ const router = express.Router();
 
 //app.use(express.static(path.join(__dirname, "./public/")));
 app.use(cors())
+app.use(router);
 app.use(parser.urlencoded({extended:true}))
 
 const storage = multer.diskStorage({
@@ -24,9 +25,28 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({
-   storage: storage,
-   limits:{fileSize: 1000000},
-}).single("myFile");
+   storage: multer.diskStorage({
+     destination(req, file, cb) {
+       cb(null, './files');
+     },
+     filename(req, file, cb) {
+       cb(null, `${new Date().getTime()}_${file.originalname}`);
+     }
+   }),
+   limits: {
+     fileSize: 1000000 // max file size 1MB = 1000000 bytes
+   },
+   fileFilter(req, file, cb) {
+     if (!file.originalname.match(/\.(jpeg|jpg|png|pdf|doc|docx|xlsx|xls)$/)) {
+       return cb(
+         new Error(
+           'only upload files with jpg, jpeg, png, pdf, doc, docx, xslx, xls format.'
+         )
+       );
+     }
+     cb(undefined, true); // continue with upload
+   }
+ });
 
 const obj =(req,res) => {
    const image=req.files;
@@ -47,9 +67,36 @@ const obj =(req,res) => {
    // });
 }
 
-router.post("/upload", obj);
+//router.post("/upload", obj);
 
-app.use(router);
+router.post(
+   '/upload',
+   upload.single('file'),
+   async (req, res) => {
+     try {
+       const { title, description } = req.body;
+      // const { path, mimetype } = req.file;
+       const file = new File({
+         title,
+         description,
+         file_path: 'path',
+         file_mimetype: 'mimetype'
+       });
+       await file.save();
+       res.send('file uploaded successfully.');
+     } catch (error) {
+       res.status(400).send('Error while uploading file. Try again later.'+ error);
+     }
+   },
+   (error, req, res, next) => {
+     if (error) {
+       res.status(500).send(error.message);
+     }
+   }
+ );
+ 
+
+
 
 app.get("/",(req,res)=>{
    return res.send("<p>hello!</p>");
@@ -69,7 +116,7 @@ app.get('/get',(req,res)=>{
 
 })
 
-mongoose.connect('mongodb://localhost:27017',{
+mongoose.connect('mongodb://localhost:27017/Images',{
    useUnifiedTopology: true,
    useNewUrlParser: true,
    useCreateIndex: true,

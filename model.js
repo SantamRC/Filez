@@ -1,8 +1,15 @@
 var mongoose = require('mongoose');
-
-
-const fileSchema = new mongoose.Schema({
-    meta_data:{},
+ 
+var imageSchema = new mongoose.Schema({
+    name: String,
+    desc: String,
+    img:
+    {
+        data: Buffer,
+        contentType: String
+    }
 });
-
-mongoose.model("file",fileSchema);
+ 
+//Image is a model which has a schema imageSchema
+ 
+module.exports = new mongoose.model('', imageSchema);
