@@ -42,5 +42,5 @@ npm run dev
 [stars-url]: https://github.com/SantamRC/Filez/stargazers
 [issues-shield]: https://img.shields.io/github/issues/SantamRC/Filez?style=for-the-badge&logo=appveyor
 [issues-url]: https://github.com/SantamRC/Filez/issues
-[license-shield]: https://img.shields.io/github/license/SantamRC/Filez?style=flat-square
+[license-shield]: https://img.shields.io/github/license/SantamRC/Filez?style=for-the-badge&logo=appveyor
 [license-url]: https://github.com/Manthan933/Manthan/blob/master/LICENSE.txt
