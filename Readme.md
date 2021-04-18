@@ -28,6 +28,14 @@ npm install
 npm run dev 
 ```
 
+## Author 👨‍💻
+
+### [Santam Roy Choudhury](https://github.com/SantamRC)
+
+[<img src="https://image.flaticon.com/icons/svg/185/185964.svg" width="35" padding="10">](https://www.linkedin.com/in/santam-roy-choudhury-31b37b168/)
+[<img src="https://www.flaticon.com/svg/static/icons/svg/1312/1312142.svg" width="35" padding="10">](https://twitter.com/santam00)
+[<img src="https://image.flaticon.com/icons/svg/185/185985.svg" width="35" padding="10">](https://www.instagram.com/virtual_ghost_303/)
+
 [forks-shield]: https://img.shields.io/github/forks/SantamRC/Filez?style=for-the-badge&logo=appveyor
 [forks-url]: https://github.com/SantamRC/Filez/network/members
 [stars-shield]: https://img.shields.io/github/stars/SantamRC/Filez?style=for-the-badge&logo=appveyor
