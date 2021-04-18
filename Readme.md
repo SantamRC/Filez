@@ -22,10 +22,10 @@ A peer2peer File Transfer Application
 [contributors-shield]: https://img.shields.io/github/contributors/Manthan933/Manthan.svg?style=flat-square
 [contributors-url]: https://github.com/SantamRC/Filez/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Manthan933/Manthan.svg?style=flat-square
-[forks-url]: https://github.com/Manthan933/Manthan/network/members
+[forks-url]: https://github.com/SantamRC/Filez/network/members
 [stars-shield]: https://img.shields.io/github/stars/Manthan933/Manthan.svg?style=flat-square
-[stars-url]: https://github.com/Manthan933/Manthan/stargazers
+[stars-url]: https://github.com/SantamRC/Filez/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Manthan933/Manthan.svg?style=flat-square
-[issues-url]: https://github.com/Manthan933/Manthan/issues
+[issues-url]: https://github.com/SantamRC/Filez/issues
 [license-shield]: https://img.shields.io/github/license/Manthan933/Manthan.svg?style=flat-square
 [license-url]: https://github.com/Manthan933/Manthan/blob/master/LICENSE.txt
