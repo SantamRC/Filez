@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Download() {
+export default function Chats() {
     return (
         <div>
-            <button>Download</button>
+            
         </div>
     )
 }
